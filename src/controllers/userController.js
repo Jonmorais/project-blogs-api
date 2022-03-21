@@ -1,4 +1,7 @@
-const { createNewUser } = require('../services/userServices');
+const {
+  createNewUser,
+  getUsers,
+ } = require('../services/userServices');
 
 const createUser = async (req, res, next) => {
   try {
@@ -10,4 +13,16 @@ const createUser = async (req, res, next) => {
   }
 };
 
-module.exports = { createUser };
+const getAllUsers = async (req, res, next) => {
+  try {
+      const { code, response } = await getUsers();
+      return res.status(code).json(response);
+  } catch (error) {
+      next(error);
+  }
+};
+
+module.exports = { 
+  createUser,
+  getAllUsers,
+};
