@@ -10,6 +10,12 @@ const create = async (name) => {
   return { code: 201, response: category };
 };
 
+const getCategories = async () => {  
+  const categories = await Category.findAll();
+  return { code: 200, response: categories };
+};
+
 module.exports = {
   create,
+  getCategories,
 };
