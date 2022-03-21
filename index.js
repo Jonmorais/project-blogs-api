@@ -13,9 +13,9 @@ const PORT = process.env.PORT || 3000;
 app.use('/user', userRouter);
 app.use('/login', loginRouter);
 
+app.listen(PORT, () => console.log(`Aplicação ouvindo porta ${PORT}!`));
+
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
   response.send();
 });
-
-app.listen(PORT, () => console.log(`Aplicação ouvindo porta ${PORT}!`));
